@@ -13,7 +13,7 @@ function init() {
 
   function populateVoices() {
     voices = synth.getVoices();
-    voiceSelect.innerHTML = '';
+    voiceSelect.innerHTML = '<option value="select" disabled selected>Select Voice:</option>';
 
     voices.forEach((voice) => {
       const option = document.createElement('option');
@@ -23,22 +23,26 @@ function init() {
     });
   }
 
-  // Load voices list (some browsers load them asynchronously)
   populateVoices();
+
   if (speechSynthesis.onvoiceschanged !== undefined) {
     speechSynthesis.onvoiceschanged = populateVoices;
   }
 
   speakButton.addEventListener('click', () => {
     const utterThis = new SpeechSynthesisUtterance(textInput.value);
-    const selectedVoice = voiceSelect.value;
+    const selectedVoiceName = voiceSelect.value;
 
-    utterThis.voice = voices.find((voice) => voice.name === selectedVoice);
+    // Find the selected voice object
+    const selectedVoice = voices.find((voice) => voice.name === selectedVoiceName);
+    if (selectedVoice) {
+      utterThis.voice = selectedVoice;
+    }
 
-    // Change face to open-mouth
+    // Open mouth image while speaking
     faceImage.src = 'assets/images/smiling-open.png';
 
-    // Revert face after speaking
+    // Restore smiling image when done
     utterThis.onend = () => {
       faceImage.src = 'assets/images/smiling.png';
     };
