@@ -1,0 +1,1 @@
+1. It's important to use meaningful and consistent IDs and classes because they're how CSS styles elements and how JavaScript selects and interacts with them. Clear naming makes your code easier to maintain, debug, and scale across technologies.
