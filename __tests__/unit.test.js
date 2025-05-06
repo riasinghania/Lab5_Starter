@@ -9,7 +9,7 @@ import {
   isHexColor,
 } from '../code-to-unit-test/unit-test-me';
 
-// 📱 isPhoneNumber
+// isPhoneNumber
 describe('isPhoneNumber', () => {
   test('valid phone number with dashes', () => {
     expect(isPhoneNumber('123-456-7890')).toBe(true);
@@ -25,7 +25,7 @@ describe('isPhoneNumber', () => {
   });
 });
 
-// 📧 isEmail
+// isEmail
 describe('isEmail', () => {
   test('valid email', () => {
     expect(isEmail('user@example.com')).toBe(true);
@@ -41,7 +41,7 @@ describe('isEmail', () => {
   });
 });
 
-// 🔐 isStrongPassword
+// isStrongPassword
 describe('isStrongPassword', () => {
   test('valid short password', () => {
     expect(isStrongPassword('Abcd')).toBe(true);
@@ -57,7 +57,7 @@ describe('isStrongPassword', () => {
   });
 });
 
-// 📅 isDate
+// isDate
 describe('isDate', () => {
   test('valid date with slashes', () => {
     expect(isDate('12/25/2020')).toBe(true);
@@ -73,7 +73,7 @@ describe('isDate', () => {
   });
 });
 
-// 🎨 isHexColor
+// isHexColor
 describe('isHexColor', () => {
   test('valid 3-character hex', () => {
     expect(isHexColor('#0f0')).toBe(true);
